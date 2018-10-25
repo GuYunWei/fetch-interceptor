@@ -20,5 +20,8 @@ const newFetch = function newFetch(url, options) {
     });
   });
 };
+
+newFetch.register = fetchAOP.register;
+
 window.fetch = newFetch;
 export default newFetch;

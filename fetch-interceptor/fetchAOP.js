@@ -63,7 +63,7 @@ fetchAOP.prototype.unsubscribe = function unsubscribe(token) {
 
 fetchAOP.prototype.register = function register(obj) {
   for (const topic in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, topic)) {
+    if (Object.prototype.hasOwnProperty.call(obj, topic) && ['before', 'done', 'fail', 'catch'].indexOf(topic) > -1) {
       fetchAOP.subscribe(topic, obj[topic]);
     }
   }
